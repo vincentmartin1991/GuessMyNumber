@@ -3,12 +3,12 @@ import { StyleSheet, TextInput, View } from "react-native"
 import PrimaryButton from "../components/PrimaryButton"
 
 function StartGameScreen() {
-  return(
-    <View style={styles.inputContainer}>
-      <TextInput style={styles.numberInput} maxLength={2} keyboardType="number-pad" />
-      <PrimaryButton>Reset</PrimaryButton>
-      <PrimaryButton>Confirm</PrimaryButton>
-    </View>
+  return (
+      <View style={styles.inputContainer}>
+        <TextInput style={styles.numberInput} maxLength={2} keyboardType="number-pad" />
+        <PrimaryButton>Reset</PrimaryButton>
+        <PrimaryButton>Confirm</PrimaryButton>
+      </View>
   )
 }
 
@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 24,
     borderRadius: 8,
     padding: 16,
-    backgroundColor: "#72063c",
+    backgroundColor: "#4e0329",
     shadowColor: "black",
     shadowOffset: { width: 2, height: 4 },
     shadowRadius: 6,
