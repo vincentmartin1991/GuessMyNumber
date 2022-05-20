@@ -60,7 +60,7 @@ export default StartGameScreen;
 
 const styles = StyleSheet.create({
 	rootContainer: {
-		// flex: 1,
+		flex: 1,
 		marginTop: 100,
 		alignItems: "center",
 	},

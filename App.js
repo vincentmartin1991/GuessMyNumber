@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { StatusBar } from "expo-status-bar";
 import { StyleSheet, ImageBackground, SafeAreaView } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
+import { useFonts } from "expo-font";
+import AppLoading from "expo-app-loading";
 
 import StartGameScreen from "./screens/StartGameScreen";
 import GameScreen from "./screens/GameScreen";
@@ -11,14 +12,30 @@ import Colors from "./constants/colors";
 export default function App() {
 	const [userNumber, setUserNumber] = useState();
 	const [gameIsOver, setGameIsOver] = useState(true);
+	const [guessRounds, setGuessRounds] = useState(0);
+
+	const [fontsLoaded] = useFonts({
+		"open-sans": require("./assets/fonts/OpenSans-Regular.ttf"),
+		"open-sans-bold": require("./assets/fonts/OpenSans-Bold.ttf"),
+	});
+
+	if (!fontsLoaded) {
+		return <AppLoading />;
+	}
 
 	function pickedNumberHandler(pickedNumber) {
 		setUserNumber(pickedNumber);
 		setGameIsOver(false);
 	}
 
-	function gameOverHandler() {
+	function gameOverHandler(numberOfRounds) {
 		setGameIsOver(true);
+		setGuessRounds(numberOfRounds);
+	}
+
+	function startNewGameHandler() {
+		setUserNumber(null);
+		setGuessRounds(0);
 	}
 
 	let screen = <StartGameScreen onPickNumber={pickedNumberHandler} />;
@@ -30,7 +47,13 @@ export default function App() {
 	}
 
 	if (gameIsOver && userNumber) {
-		screen = <GameOverScreen />;
+		screen = (
+			<GameOverScreen
+				roundsNumber={guessRounds}
+				userNumber={userNumber}
+				onStartNewGame={startNewGameHandler}
+			/>
+		);
 	}
 
 	return (
@@ -39,13 +62,12 @@ export default function App() {
 			style={styles.rootScreen}
 		>
 			<ImageBackground
-				style={styles.rootScreen}
 				source={require("./assets/images/dice.jpg")}
 				resizeMode="cover"
+				style={styles.rootScreen}
 				imageStyle={styles.backgroundImage}
 			>
-				{/* <StatusBar style="light" /> */}
-				<SafeAreaView>{screen}</SafeAreaView>
+				<SafeAreaView style={styles.rootScreen}>{screen}</SafeAreaView>
 			</ImageBackground>
 		</LinearGradient>
 	);
