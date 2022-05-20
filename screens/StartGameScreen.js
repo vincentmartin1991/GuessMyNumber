@@ -43,11 +43,11 @@ function StartGameScreen({ onPickNumber }) {
 					onChangeText={numberInputHandler}
 					value={enteredNumber}
 				/>
-				<View style={styles.buttonsContainer}>
-					<View style={styles.buttonContainer}>
+				<View style={styles.btnsContainer}>
+					<View style={styles.btnContainer}>
 						<PrimaryButton onPress={resetInputHandler}>Reset</PrimaryButton>
 					</View>
-					<View style={styles.buttonContainer}>
+					<View style={styles.btnContainer}>
 						<PrimaryButton onPress={confirmInputHandler}>Confirm</PrimaryButton>
 					</View>
 				</View>
@@ -75,11 +75,11 @@ const styles = StyleSheet.create({
 		fontWeight: "bold",
 		textAlign: "center",
 	},
-	buttonsContainer: {
+	btnsContainer: {
 		flexDirection: "row",
 		justifyContent: "space-around",
 	},
-	buttonContainer: {
+	btnContainer: {
 		flex: 1,
 	},
 });

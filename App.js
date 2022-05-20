@@ -35,7 +35,7 @@ export default function App() {
 
 	return (
 		<LinearGradient
-			colors={[Colors.primary700, Colors.accent500]}
+			colors={[Colors.primary700, "white"]}
 			style={styles.rootScreen}
 		>
 			<ImageBackground
@@ -44,7 +44,7 @@ export default function App() {
 				resizeMode="cover"
 				imageStyle={styles.backgroundImage}
 			>
-				<StatusBar style="light" />
+				{/* <StatusBar style="light" /> */}
 				<SafeAreaView>{screen}</SafeAreaView>
 			</ImageBackground>
 		</LinearGradient>
