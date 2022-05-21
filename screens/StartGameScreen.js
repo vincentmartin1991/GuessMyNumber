@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
 	rootContainer: {
 		flex: 1,
 		marginTop: 100,
-		alignItems: "center",
+		marginHorizontal: 24,
 	},
 	numberInput: {
 		width: 50,

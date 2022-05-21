@@ -31,7 +31,6 @@ const styles = StyleSheet.create({
 		flex: 1,
 		padding: 24,
 		justifyContent: "center",
-		alignItems: "center",
 	},
 	imageContainer: {
 		width: 300,
@@ -41,6 +40,7 @@ const styles = StyleSheet.create({
 		borderColor: "white",
 		overflow: "hidden",
 		margin: 36,
+		alignSelf: "center",
 	},
 	image: {
 		width: "100%",
